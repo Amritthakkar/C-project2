@@ -6,13 +6,18 @@ int main()
 {
     char mainmenu[][30] = {
         "Exit",
-        "Check Vaccine Slots",
         "Register Vaccine Slot",
         "Login",
         "Sign Up"
     };
     
-    int main_menu_choice = Get_Menu_Choice(mainmenu, 5, "Main Menu");
+    int main_menu_choice = Get_Menu_Choice(mainmenu, 4, "Main Menu");
+
+    char user_type_menu[][30] = {
+        "Staff",
+        "Patient"
+    };
+    int user_type_menu_choice;
 
     switch(main_menu_choice)
     {
@@ -20,7 +25,14 @@ int main()
             printf("Good Bye !");
             break;
         case 1:
-            Display_Vaccine_Slots();
+            printf("Registering new vaccine slots");
+            break;
+        case 2:
+            user_type_menu_choice = Get_Menu_Choice(user_type_menu, 2, "Login as-");
+            Login_As(user_type_menu[user_type_menu_choice], user_type_menu_choice);
+            break;
+        case 3:
+            user_type_menu_choice = Get_Menu_Choice(user_type_menu, 2, "Sign Up as-");
             break;
     }
 
